@@ -41,5 +41,6 @@ article {
   max-width: 1300px;
   width: 100%;
   margin: 2rem auto;
-  justify-content: center !important;
+  justify-content: center;
+  display: flex;
 }
