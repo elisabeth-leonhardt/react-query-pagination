@@ -14,3 +14,32 @@ a {
 * {
   box-sizing: border-box;
 }
+
+h1 {
+  text-align: center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+}
+
+article {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.pagination {
+  max-width: 1300px;
+  width: 100%;
+  margin: 2rem auto;
+  justify-content: center !important;
+}
