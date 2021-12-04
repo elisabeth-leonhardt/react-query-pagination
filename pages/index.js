@@ -1,14 +1,11 @@
-import styles from "../styles/Home.module.css";
-import Button from "@material-ui/core/Button";
 import Pagination from "@material-ui/lab/Pagination";
 import { useQuery } from "react-query";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Home(props) {
-  console.log(props);
   const router = useRouter();
-  console.log(parseInt(router.query.page));
   const [page, setPage] = useState(parseInt(router.query.page) || 1);
   function handlePaginationChange(e, value) {
     setPage(value);
@@ -37,10 +34,15 @@ export default function Home(props) {
       initialData: props.data,
     }
   );
-  console.log(page);
   return (
     <div>
-      <h1>Rick and Morty with React Query and Pagination</h1>
+      Go to{" "}
+      <Link href='/pagination'>
+        <a>Pagination</a>
+      </Link>{" "}
+      to see the Pagination with Rick and Morty!
+      {/* I am experimenting here! Stay tuned for a new article!*/}
+      {/* <h1>Rick and Morty with React Query and Pagination</h1>
       <Pagination
         count={data?.info.pages}
         variant='outlined'
@@ -76,14 +78,13 @@ export default function Home(props) {
         onChange={handlePaginationChange}
         className='pagination'
         page={page}
-      />
+      />*/}
     </div>
   );
 }
 
 export async function getServerSideProps(context) {
   const pageParam = context.query?.page;
-  console.log(pageParam);
   try {
     const data = await fetch(
       `https://rickandmortyapi.com/api/character?page=${pageParam}`

@@ -7,8 +7,6 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
 }
 
 * {
@@ -20,11 +18,12 @@ h1 {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   max-width: 1300px;
   width: 100%;
   margin: auto;
+  padding: 2rem;
 }
 
 article {
@@ -34,13 +33,13 @@ article {
   align-items: center;
   text-align: center;
   border-radius: 0.5em;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
 }
 
 .pagination {
   max-width: 1300px;
   width: 100%;
-  margin: 2rem auto;
+  margin: auto;
   justify-content: center;
   display: flex;
 }
