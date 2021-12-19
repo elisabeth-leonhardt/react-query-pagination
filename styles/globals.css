@@ -13,6 +13,24 @@ body {
 h1 {
   text-align: center;
 }
+
+h2 {
+  padding-top: 1rem;
+}
+
+#welcome {
+  max-width: 1300px;
+  margin: auto;
+}
+
+#welcome a {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-right: 1rem;
+  color: black;
+  text-decoration: none;
+}
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
