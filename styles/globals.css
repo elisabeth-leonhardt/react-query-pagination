@@ -6,9 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-}
-
 * {
   box-sizing: border-box;
 }
@@ -18,7 +15,7 @@ h1 {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 2rem;
   max-width: 1300px;
   width: 100%;
@@ -27,13 +24,22 @@ h1 {
 }
 
 article {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-radius: 0.5em;
+  overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
+  padding-bottom: 1rem;
+}
+
+article > *:not(img) {
+  padding-inline: 1rem;
+}
+
+article img {
+  object-fit: cover;
 }
 
 .pagination {
@@ -42,4 +48,8 @@ article {
   margin: auto;
   justify-content: center;
   display: flex;
+}
+
+.pagination:nth-of-type(2) {
+  margin-bottom: 2rem;
 }

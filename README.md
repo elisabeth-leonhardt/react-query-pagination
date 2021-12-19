@@ -20,5 +20,6 @@ Open [http://localhost:3001](http://localhost:3001) with your browser to see the
 
 ## Pagination with Rick and Morty
 
-to see the implemented pagination, go to [http://localhost:3001/pagination](http://localhost:3001/pagination)
-I am working on a server side rendered pagination and on an article on infinite scroll with react query, so you can expect this repo and the files to change :)
+to see the implemented pagination with CSR, go to [http://localhost:3001/paginationCSR](http://localhost:3001/paginationCSR)
+to see the implemented pagination with SSR, go to [http://localhost:3001/paginationSSR](http://localhost:3001/paginationSSR)
+I am working on a an article on infinite scroll with react query, so you can expect this repo and the files to change :)

@@ -1,11 +1,11 @@
-import { useQuery } from "react-query";
+import { useQuery, dehydrate, QueryClient } from "react-query";
 import Pagination from "@material-ui/lab/Pagination";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function PaginationPage(props) {
-  const [page, setPage] = useState(1);
+export default function paginationSSR(props) {
   const router = useRouter();
+  const [page, setPage] = useState(parseInt(router.query.page) || 1);
   const { data } = useQuery(
     ["characters", page],
     async () =>
@@ -14,20 +14,19 @@ export default function PaginationPage(props) {
       ).then((result) => result.json()),
     {
       keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
     }
   );
   function handlePaginationChange(e, value) {
     setPage(value);
-    router.push(`pagination/?page=${value}`, undefined, { shallow: true });
+    router.push(`paginationSSR/?page=${value}`, undefined, { shallow: true });
   }
-  useEffect(() => {
-    if (router.query.page) {
-      setPage(parseInt(router.query.page));
-    }
-  }, []);
   return (
     <div>
-      <h1>Rick and Morty with React Query and Pagination</h1>
+      <h1>
+        Rick and Morty with React Query and Pagination - Server Side rendered
+      </h1>
       <Pagination
         count={data?.info.pages}
         variant='outlined'
@@ -42,9 +41,9 @@ export default function PaginationPage(props) {
             <img
               src={character.image}
               alt={character.name}
-              height={200}
+              height={250}
               loading='lazy'
-              width={200}
+              width={"100%"}
             />
             <div className='text'>
               <p>Name: {character.name}</p>
@@ -60,7 +59,25 @@ export default function PaginationPage(props) {
         variant='outlined'
         color='primary'
         className='pagination'
+        page={page}
+        onChange={handlePaginationChange}
       />
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  let page = 1;
+  if (context.query.page) {
+    page = parseInt(context.query.page);
+  }
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(
+    ["characters", page],
+    async () =>
+      await fetch(
+        `https://rickandmortyapi.com/api/character/?page=${page}`
+      ).then((result) => result.json())
+  );
+  return { props: { dehydratedState: dehydrate(queryClient) } };
 }

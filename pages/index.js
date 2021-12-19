@@ -37,10 +37,13 @@ export default function Home(props) {
   return (
     <div>
       Go to{" "}
-      <Link href='/pagination'>
-        <a>Pagination</a>
+      <Link href='/paginationCSR'>
+        <a>client side rendered Pagination</a>
       </Link>{" "}
       to see the Pagination with Rick and Morty!
+      <Link href='/paginationSSR'>
+        <a>server side rendered Pagination</a>
+      </Link>{" "}
       {/* I am experimenting here! Stay tuned for a new article!*/}
       {/* <h1>Rick and Morty with React Query and Pagination</h1>
       <Pagination
