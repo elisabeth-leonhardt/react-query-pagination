@@ -22,6 +22,16 @@ export default function Home(props) {
       <a href='https://github.com/elisabeth-leonhardt/react-query-pagination/tree/main/pages'>
         See the code
       </a>
+      <h1>Explore how I implemented an infinite scroll:</h1>
+      <a href='https://dev.to/elisabethleonhardt/implementing-pagination-with-nextjs-mui-and-react-query-2ab'>
+        Read the Article
+      </a>
+      <Link href='/infiniteCSR'>
+        <a>See it working</a>
+      </Link>{" "}
+      <a href='https://github.com/elisabeth-leonhardt/react-query-pagination/tree/main/pages'>
+        See the code
+      </a>
     </div>
   );
 }
