@@ -23,7 +23,7 @@ export default function Home(props) {
         See the code
       </a>
       <h1>Explore how I implemented an infinite scroll:</h1>
-      <a href='https://dev.to/elisabethleonhardt/implementing-pagination-with-nextjs-mui-and-react-query-2ab'>
+      <a href='https://dev.to/elisabethleonhardt/easy-and-quick-infinite-scroll-with-nextjs-and-react-query-36lh'>
         Read the Article
       </a>
       <Link href='/infiniteCSR'>
