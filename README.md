@@ -18,8 +18,12 @@ yarn dev
 
 Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
-## Pagination with Rick and Morty
+## This project implements Pagination and Infinite Scroll with the Rick and Morty API
 
 to see the implemented pagination with CSR, go to [http://localhost:3001/paginationCSR](http://localhost:3001/paginationCSR)
+
 to see the implemented pagination with SSR, go to [http://localhost:3001/paginationSSR](http://localhost:3001/paginationSSR)
-I am working on a an article on infinite scroll with react query, so you can expect this repo and the files to change :)
+
+to see the implemented infinite scroll (CSR), go to [http://localhost:3001/infiniteCSR](http://localhost:3001/infiniteCSR)
+
+don't forget to check out my [blog](https://dev.to/elisabethleonhardt) on dev.to to read the explainations on how this is implemented!
